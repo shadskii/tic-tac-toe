@@ -11,7 +11,7 @@ let board = [
 
 const Board = ({ size, actions }) => (
     <div className='container content-scroll'>
-        <table style={{ width: '100%', height: '100%' }}>
+        <table className='table-bordered' style={{ width: '100%', height: '100%' }}>
             <tbody>
                 {tablerows(board)}
             </tbody>
@@ -21,7 +21,7 @@ const Board = ({ size, actions }) => (
 function tablerows(board) {
     return board.map((rows, rowIndex) => {
         var row = rows.map((cell, colIndex) =>
-            <td><Tile
+            <td className='text-center'><Tile
                 key={rowIndex + ' ' + colIndex}
                 value={cell}
             /></td>
