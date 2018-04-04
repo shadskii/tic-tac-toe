@@ -7,6 +7,7 @@ const initialState = [
     [NONE, NONE, NONE]
 ];
 export default function tiles(state = initialState, action) {
+    console.log(action);
     switch (action.type) {
         case types.UPDATE_TILE:
             state[action.x][action.y] = action.value;

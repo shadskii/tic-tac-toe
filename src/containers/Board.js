@@ -4,22 +4,26 @@ import Tile from '../components/Tile';
 import { O, X, NONE } from '../constants/Values';
 
 
-const Board = ({ board, actions }) => (
+const Board = ({ board, updateFunc }) => (
     <div className='container content-scroll'>
         <table className='table-bordered' style={{ width: '100%', height: '100%' }}>
             <tbody>
-                {tablerows(board)}
+                {tablerows(board, updateFunc)}
             </tbody>
         </table>
     </div>
 );
-function tablerows(board) {
+function tablerows(board, updateFunc) {
+    console.log(board);
     return board.map((rows, rowIndex) => {
         var row = rows.map((cell, colIndex) =>
-            <td className='text-center'><Tile
-                key={rowIndex + ' ' + colIndex}
-                value={cell}
-            /></td>
+            <td className='text-center'>
+                <Tile
+                    key={rowIndex + ' ' + colIndex}
+                    value={cell}
+                    updateFunc={() => updateFunc(rowIndex, colIndex, X)}
+                />
+            </td>
         );
         return <tr>{row}</tr>;
     });

@@ -5,7 +5,7 @@ import '../styles/App.css';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as Actions from '../actions'; 
+import * as Actions from '../actions';
 
 
 const App = ({ board, actions }) => (
@@ -17,6 +17,7 @@ const App = ({ board, actions }) => (
     />
     <Board
       board={board}
+      updateFunc={actions.selectTile}
     />
   </div>
 );
