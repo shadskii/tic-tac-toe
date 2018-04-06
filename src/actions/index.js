@@ -1,7 +1,6 @@
 import * as types from '../constants/ActionTypes'
-export const selectTile = (x, y, value) => ({
+export const selectTile = (index, value) => ({
     type: types.UPDATE_TILE,
-    x: x,
-    y: y,
+    index: index,
     value: value
 })
