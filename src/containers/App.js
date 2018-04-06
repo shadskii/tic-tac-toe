@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import * as Actions from '../actions';
 
 
-const App = ({ boardTiles, actions }) => (
+const App = ({ boardTiles, player, actions }) => (
   <div className="wrapper">
     <AppBar
       title={'Tic Tac Toe'}
@@ -18,6 +18,7 @@ const App = ({ boardTiles, actions }) => (
     />
     <Board
       board={boardTiles}
+      player={player}
       updateFunc={actions.selectTile}
     />
   </div>
@@ -27,7 +28,8 @@ App.propTypes = {
   actions: PropTypes.object.isRequired,
 }
 const mapStateToProps = state => ({
-  boardTiles: state.tiles
+  boardTiles: state.tiles,
+  player: state.player
 })
 
 const mapDispatchToProps = dispatch => ({

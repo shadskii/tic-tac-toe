@@ -4,3 +4,8 @@ export const selectTile = (index, value) => ({
     index: index,
     value: value
 })
+
+export const changePlayer = (player) => ({
+    type: types.CHANGE_PLAYER,
+    player: player
+});
