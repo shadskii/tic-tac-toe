@@ -2,11 +2,11 @@ import React from 'react';
 import * as Actions from '../actions';
 import Tile from '../components/Tile';
 import { O, X, NONE } from '../constants/Values';
-
+import '../styles/Board.css';
 
 const Board = ({ board, updateFunc }) => (
     <div className='container content-scroll'>
-        <table className='table-bordered' style={{ width: '100%', height: '100%' }}>
+        <table className='' style={{ width: '100%', height: '100%' }}>
             <tbody>
                 <tr>
                     <td className='text-center'>
