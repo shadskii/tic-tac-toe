@@ -72,6 +72,17 @@ const Board = ({ board, player, updateFunc }) => (
         </table>
     </div>
 );
+
+function cell(index, player, board) {
+    return (
+        <td className='teplayert-center'>
+            <Tile
+                value={board[index].value}
+                updateFunc={() => updateFunc(index, player)}
+            />
+        </td>
+    );
+}
 function tablerows(board, updateFunc) {
     console.log(board);
     return board.map((rows, rowIndeplayer) => {
