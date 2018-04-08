@@ -9,73 +9,28 @@ const Board = ({ board, player, updateFunc }) => (
         <table className='' style={{ width: '100%', height: '100%' }}>
             <tbody>
                 <tr>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[0].value}
-                            updateFunc={() => updateFunc(0, player)}
-                        />
-                    </td>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[1].value}
-                            updateFunc={() => updateFunc(1, player)}
-                        />
-                    </td>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[2].value}
-                            updateFunc={() => updateFunc(2, player)}
-                        />
-                    </td>
+                    {cell(0, player, board, updateFunc)}
+                    {cell(1, player, board, updateFunc)}
+                    {cell(2, player, board, updateFunc)}
                 </tr>
                 <tr>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[3].value}
-                            updateFunc={() => updateFunc(3, player)}
-                        />
-                    </td>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[4].value}
-                            updateFunc={() => updateFunc(4, player)}
-                        />
-                    </td>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[5].value}
-                            updateFunc={() => updateFunc(5, player)}
-                        />
-                    </td>
+                    {cell(3, player, board, updateFunc)}
+                    {cell(4, player, board, updateFunc)}
+                    {cell(5, player, board, updateFunc)}
                 </tr>
                 <tr>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[6].value}
-                            updateFunc={() => updateFunc(6, player)}
-                        />
-                    </td>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[7].value}
-                            updateFunc={() => updateFunc(7, player)}
-                        />
-                    </td>
-                    <td className='teplayert-center'>
-                        <Tile
-                            value={board[8].value}
-                            updateFunc={() => updateFunc(8, player)}
-                        />
-                    </td>
+                    {cell(6, player, board, updateFunc)}
+                    {cell(7, player, board, updateFunc)}
+                    {cell(8, player, board, updateFunc)}
                 </tr>
             </tbody>
         </table>
     </div>
 );
 
-function cell(index, player, board) {
+function cell(index, player, board, updateFunc) {
     return (
-        <td className='teplayert-center'>
+        <td className='table-center'>
             <Tile
                 value={board[index].value}
                 updateFunc={() => updateFunc(index, player)}
