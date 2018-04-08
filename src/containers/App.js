@@ -20,6 +20,7 @@ const App = ({ boardTiles, player, actions }) => (
       board={boardTiles}
       player={player}
       updateFunc={actions.selectTile}
+      changePlayer={actions.changePlayer}
     />
   </div>
 );

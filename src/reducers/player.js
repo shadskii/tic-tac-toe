@@ -4,7 +4,11 @@ import { O, X, NONE } from '../constants/Values';
 export default function player(state = O, action) {
     switch (action.type) {
         case types.CHANGE_PLAYER:
-            return action.player;
+            if (state === O) {
+                return X;
+            } else {
+                return O;
+            }
         default:
             return state;
     }
