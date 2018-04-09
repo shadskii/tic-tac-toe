@@ -1,3 +1,3 @@
-export const X = 'X';
-export const O = 'O';
-export const NONE = 'NONE';
+export const X = '1';
+export const O = '0';
+export const NONE = '99';

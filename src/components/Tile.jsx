@@ -3,20 +3,17 @@ import PropTypes from 'prop-types'
 import * as Values from '../constants/Values';
 import '../styles/Tile.css';
 
-class Tile extends React.Component {
+const Tile = ({ value, updateFunc }) => {
+    let val = this.props;
+    return (
+        <div className='tile' onClick={() => updateFunc()}>
+            {value === Values.NONE ?
+                <h1></h1>
+                :
+                <p>{value === Values.X ? 'X' : 'O'}</p>
+            }
 
-    render() {
-        let val = this.props;
-        return (
-            <div className='tile' onClick={() => this.props.updateFunc()}>
-                {this.props.value === Values.NONE ?
-                    <h1></h1>
-                    :
-                    <p>{this.props.value}</p>
-                }
-
-            </div>
-        );
-    }
+        </div>
+    );
 }
 export default Tile;
