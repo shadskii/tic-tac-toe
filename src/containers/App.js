@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import AppBar from 'material-ui/AppBar';
 import Board from './Board';
 import WinningDialog from '../components/WinningDialog';
+
 import '../styles/App.css';
 
 import { bindActionCreators } from 'redux';

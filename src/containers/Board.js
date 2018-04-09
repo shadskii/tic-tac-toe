@@ -3,9 +3,13 @@ import * as Actions from '../actions';
 import Tile from '../components/Tile';
 import { O, X, NONE } from '../constants/Values';
 import '../styles/Board.css';
+import PlayerBanner from '../components/PlayerBanner';
 
 const Board = ({ board, player, updateFunc, changePlayer }) => (
     <div className='container content-scroll'>
+        <PlayerBanner
+            player={player}
+        />
         <table className='' style={{ width: '100%', height: '100%' }}>
             <tbody>
                 <tr>
