@@ -8,3 +8,7 @@ export const selectTile = (index, value) => ({
 export const changePlayer = () => ({
     type: types.CHANGE_PLAYER,
 });
+
+export const resetGame = () => ({
+    type: types.RESET_GAME
+});

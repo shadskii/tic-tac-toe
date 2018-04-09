@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import AppBar from 'material-ui/AppBar';
-import Board from './Board'
+import Board from './Board';
+import WinningDialog from '../components/WinningDialog';
 import '../styles/App.css';
 
 import { bindActionCreators } from 'redux';
@@ -15,6 +16,10 @@ const App = ({ game, player, actions }) => (
       title={'Tic Tac Toe'}
       showMenuIconButton={false}
       style={{ position: 'fixed' }}
+    />
+    <WinningDialog
+      resetGame={actions.resetGame}
+      winner={game.winner}
     />
     <Board
       board={game.tiles}

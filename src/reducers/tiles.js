@@ -29,12 +29,14 @@ export default function tiles(state = initialState, action) {
             });
 
             var win = whoWon(t);
-            console.log(win);
             return {
                 tiles: t,
                 winner: win
             }
 
+        case types.RESET_GAME:
+            console.log(initialState);
+            return initialState;
         default:
             return state;
     }
