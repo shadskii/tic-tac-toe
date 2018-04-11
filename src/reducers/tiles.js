@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes'
-import { O, X, NONE } from '../constants/Values';
+import { O, X, NONE, NO_WINNER } from '../constants/Values';
 
 const initialState = {
     tiles: [
@@ -78,6 +78,16 @@ function whoWon(tiles) {
         return O;
     } else if (diagonalRtoL === 3) {
         return X;
+    }
+
+    var noneCount = 0;
+    for (var i = 0; i < tiles.length; i++) {
+        if (tiles[i].value === NONE) {
+            noneCount++;
+        }
+    }
+    if (noneCount === 0) {
+        return NO_WINNER;
     }
 
     return NONE;

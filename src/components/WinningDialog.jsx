@@ -6,7 +6,7 @@ import { O, X, NONE } from '../constants/Values';
 
 const WinningDialog = ({ resetGame, winner }) => (
     <Dialog
-        title={"Player " + getWinnerName(winner) + " has won!"}
+        title={getWinnerName(winner)}
         actions={
             <FlatButton
                 label="Play Again"
@@ -20,9 +20,11 @@ const WinningDialog = ({ resetGame, winner }) => (
 );
 function getWinnerName(winner) {
     if (winner === O) {
-        return 'O';
-    } else {
-        return 'X';
+        return "Player O has won!";
+    } else if(winner === X){
+        return 'Player X has won!';
+    }else{
+        return "No one has won!"
     }
 }
 
