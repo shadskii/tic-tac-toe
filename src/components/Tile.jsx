@@ -6,7 +6,7 @@ import '../styles/Tile.css';
 const Tile = ({ value, updateFunc }) => {
     let val = this.props;
     return (
-        <div className='tile' onClick={() => updateFunc()}>
+        <div className='tile' onClick={value === Values.NONE ? () => updateFunc() : () => console.log()}>
             {value === Values.NONE ?
                 <h1></h1>
                 :
