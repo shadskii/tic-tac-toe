@@ -45,19 +45,4 @@ function cell(index, player, board, updateFunc, changePlayer) {
         </td>
     );
 }
-function tablerows(board, updateFunc) {
-    console.log(board);
-    return board.map((rows, rowIndeplayer) => {
-        var row = rows.map((cell, colIndeplayer) =>
-            <td className='teplayert-center'>
-                <Tile
-                    key={rowIndeplayer + ' ' + colIndeplayer}
-                    value={cell}
-                    updateFunc={() => updateFunc(rowIndeplayer, colIndeplayer, X)}
-                />
-            </td>
-        );
-        return <tr key={rowIndeplayer}>{row}</tr>;
-    });
-}
 export default Board;
