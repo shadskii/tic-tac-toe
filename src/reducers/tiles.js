@@ -13,13 +13,16 @@ const initialState = {
         { i: 7, value: NONE },
         { i: 8, value: NONE }
     ],
-    winner: NONE
+    winner: NONE,
+    player: X
 };
-export default function tiles(state = initialState, action) {
+export default function game(state = initialState, action) {
     switch (action.type) {
         case types.UPDATE_TILE:
+            let isUpdated = false;
             let t = state.tiles.map(tile => {
                 if (tile.i === action.index && tile.value === NONE) {
+                    isUpdated = true;
                     return {
                         i: tile.i,
                         value: action.value
@@ -27,11 +30,19 @@ export default function tiles(state = initialState, action) {
                 }
                 return tile;
             });
-
+            let p = state.player;
+            if (isUpdated) {
+                if (state.player === O) {
+                    p = X;
+                } else {
+                    p = O;
+                }
+            }
             var win = whoWon(t);
             return {
                 tiles: t,
-                winner: win
+                winner: win,
+                player: p
             }
 
         case types.RESET_GAME:

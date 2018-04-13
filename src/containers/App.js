@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import * as Actions from '../actions';
 
 
-const App = ({ game, player, actions }) => (
+const App = ({ tiles, winner, player, actions }) => (
   <div className="wrapper">
     <AppBar
       title={'Tic Tac Toe'}
@@ -20,10 +20,10 @@ const App = ({ game, player, actions }) => (
     />
     <WinningDialog
       resetGame={actions.resetGame}
-      winner={game.winner}
+      winner={winner}
     />
     <Board
-      board={game.tiles}
+      board={tiles}
       player={player}
       updateFunc={actions.selectTile}
       changePlayer={actions.changePlayer}
@@ -31,12 +31,15 @@ const App = ({ game, player, actions }) => (
   </div>
 );
 App.propTypes = {
-  game: PropTypes.object.isRequired,
+  tiles: PropTypes.array.isRequired,
+  winner: PropTypes.number.isRequired,
+  player: PropTypes.number.isRequired,
   actions: PropTypes.object.isRequired,
 }
 const mapStateToProps = state => ({
-  game: state.tiles,
-  player: state.player
+  tiles: state.game.tiles,
+  winner: state.game.winner,
+  player: state.game.player
 })
 
 const mapDispatchToProps = dispatch => ({
