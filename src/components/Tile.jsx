@@ -6,7 +6,7 @@ import '../styles/Tile.css';
 const Tile = ({ value, updateFunc }) => {
     let val = this.props;
     return (
-        <div className='tile' onClick={value === Values.NONE ? () => updateFunc() : () => console.log()}>
+        <div className='tile' onClick={() => updateFunc()}>
             {value === Values.NONE ?
                 <h1></h1>
                 :
@@ -15,5 +15,10 @@ const Tile = ({ value, updateFunc }) => {
 
         </div>
     );
+}
+
+Tile.propTypes = {
+    value: PropTypes.number.isRequired,
+    updateFunc: PropTypes.func.isRequired
 }
 export default Tile;
