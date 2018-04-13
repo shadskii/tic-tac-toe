@@ -26,7 +26,6 @@ const App = ({ tiles, winner, player, actions }) => (
       board={tiles}
       player={player}
       updateFunc={actions.selectTile}
-      changePlayer={actions.changePlayer}
     />
   </div>
 );
