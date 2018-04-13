@@ -54,29 +54,17 @@ export default function game(state = initialState, action) {
 }
 
 function whoWon(tiles) {
-    for (var row = 0; row <= 6; row += 3) {
-        var sum = 0;
-        for (var col = 0; col < 3; col++) {
-            sum += tiles[row + col].value;
-        }
-        if (sum === 0) {
-            return O;
-        } else if (sum === 3) {
-            return X;
-        }
+
+    var row = checkRows(tiles);
+    if (row !== NONE) {
+        return row;
     }
 
-    for (var col = 0; col < 3; col++) {
-        var sum = 0;
-        for (var row = 0; row <= 6; row += 3) {
-            sum += tiles[row + col].value;
-        }
-        if (sum === 0) {
-            return O;
-        } else if (sum === 3) {
-            return X;
-        }
+    var col = checkColumns(tiles);
+    if (col !== NONE) {
+        return col;
     }
+
     var diagonalLtoR = tiles[0].value + tiles[4].value + tiles[8].value;
     if (diagonalLtoR === 0) {
         return O;
@@ -101,5 +89,35 @@ function whoWon(tiles) {
         return NO_WINNER;
     }
 
+    return NONE;
+}
+
+function checkRows(tiles) {
+    for (var row = 0; row <= 6; row += 3) {
+        var sum = 0;
+        for (var col = 0; col < 3; col++) {
+            sum += tiles[row + col].value;
+        }
+        if (sum === 0) {
+            return O;
+        } else if (sum === 3) {
+            return X;
+        }
+    }
+    return NONE;
+}
+
+function checkColumns(tiles) {
+    for (var col = 0; col < 3; col++) {
+        var sum = 0;
+        for (var row = 0; row <= 6; row += 3) {
+            sum += tiles[row + col].value;
+        }
+        if (sum === 0) {
+            return O;
+        } else if (sum === 3) {
+            return X;
+        }
+    }
     return NONE;
 }
