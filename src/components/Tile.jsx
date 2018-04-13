@@ -4,11 +4,10 @@ import * as Values from '../constants/Values';
 import '../styles/Tile.css';
 
 const Tile = ({ value, updateFunc }) => {
-    let val = this.props;
     return (
         <div className='tile' onClick={() => updateFunc()}>
             {value === Values.NONE ?
-                <h1></h1>
+                <p></p>
                 :
                 <p>{value === Values.X ? 'X' : 'O'}</p>
             }

@@ -21,11 +21,15 @@ const WinningDialog = ({ resetGame, winner }) => (
 function getWinnerName(winner) {
     if (winner === O) {
         return "Player O has won!";
-    } else if(winner === X){
+    } else if (winner === X) {
         return 'Player X has won!';
-    }else{
+    } else {
         return "No one has won!"
     }
 }
 
+WinningDialog.propTypes = {
+    resetGame: PropTypes.func.isRequired,
+    winner: PropTypes.number.isRequired
+}
 export default WinningDialog;
